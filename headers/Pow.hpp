@@ -20,5 +20,5 @@ class Pow : public op, private Base
       return product;
   }
 
-	std::string stringify() { std::string value = left->stringify() + " ** " + right ->stringify(); }
+	std::string stringify() { return std::string value = left->stringify() + " ** " + right ->stringify(); }
 };

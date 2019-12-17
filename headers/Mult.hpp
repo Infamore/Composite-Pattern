@@ -2,7 +2,9 @@
 #include <string>
 #include "op.hpp"
 
-class mult : public op
+using namespace std;
+
+class mult : public op, private Base
 {
 
 private:
@@ -11,22 +13,17 @@ private:
     
 public:
 
-  mult(Base* l1, Base* r1) {
+  mult(Base l1, Base r1) : Base(r1, l1) {
     left = l1;
     right = r1;
   }
 
   double evaluate() {
-    double product = 1;
-    product *= left->evaluate();
-    product *= right->evaluate();
-
+    double product = 0;
+    double product = left->evaluate() * product;
+    double product = right->evaluate() * product;
     return product;
-
   }
 
-  string stringify() {
-    string value = left->stringify() + " * " + right->stringify();
-
-  }
+  std::string stringify() { return std::string value = left->stringify() + " * " + right->stringify(); }
 };

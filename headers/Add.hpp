@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class add : public op, private Base {				
+class Add : public op, private Base {				
         public:
 
                 add(Base l1, Base r1) : Base(l1, r1) { left = l1; right = r1; }

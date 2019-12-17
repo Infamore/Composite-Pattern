@@ -2,25 +2,17 @@
 #include "op.hpp"
 #include <string>
 
-class sub : public Base 
+using namespace std;
+
+class sub : public op, private Base 
 {
-	private: 
-  			Base* left;
+  private: 
+  	Base* left;
         Base* right;
   public:
-  			sub(Base* l1, Base* r1) {
-        	left = l1;
-          right = r1;
-        }
+  	sub(Base l1, Base r1)  : Base(r1, l1) { left = l1; right = r1;}
 				
-        double evaluate() {
-        	double difference = left ->evaluate() - right->evaluate();
-          return difference;
-        }
+        double evaluate() { return double difference = left ->evaluate() - right->evaluate(); }
         
-        string stringify() {
-        	string value = left->stringify() + " - " + right->stringify();
-        
-        	return value;
-        }
+        std::string stringify() { std::string value = left->stringify() + " - " + right->stringify(); }
 };

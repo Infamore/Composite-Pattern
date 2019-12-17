@@ -2,6 +2,8 @@
 #include "op.hpp"
 #include <string>
 
+using namespace std;
+
 class Pow : public op, private Base
 {
 	private:

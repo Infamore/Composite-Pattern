@@ -2,7 +2,9 @@
 #include <string>
 #include "op.hpp"
 
-class Div : public op
+using namespace std;
+
+class Div : public op, private Base
 {
 
 	private:
@@ -10,18 +12,12 @@ class Div : public op
   Base* right;
   
   public:
-	Div(Base* l1, Base* r1) {
-  		left = l1;
-      right = r1;
+	Div(Base l1, Base r1) : Base(l1, r1) {
+	left = l1;
+        right = r1;
   }
   
-  double evaluate() {
-  	double quotient = left->evaluate() / right->evaluate();
-    return quotient;
-  }
+  double evaluate() { return double quotient = left->evaluate() / right->evaluate(); }
   
-  string stringify() {
-  	string value = left->stringify() + " / " + right->stringify();
-    return value;
-  }
+  std::string stringify() { return std::string value = left->stringify() + " / " + right->stringify(); }
 };
